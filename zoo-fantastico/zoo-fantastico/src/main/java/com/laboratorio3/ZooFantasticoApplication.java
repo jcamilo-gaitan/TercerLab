@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ZooFantasticoApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Jodida mierda");
+		System.out.println("Compilado, trabajar aqui, compañeros. ");
 
 		SpringApplication.run(ZooFantasticoApplication.class, args);
 	}
