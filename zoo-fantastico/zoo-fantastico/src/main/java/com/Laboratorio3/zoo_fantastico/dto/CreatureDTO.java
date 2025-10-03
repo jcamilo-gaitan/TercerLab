@@ -1,26 +1,20 @@
-package com.Laboratorio3.zoo_fantastico.entity;
+package com.Laboratorio3.zoo_fantastico.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.*;
 
-@Entity
 @Data // Esto es opcional pueden usarlo o crear los getter y setters
 @NoArgsConstructor
 @AllArgsConstructor
-public class Creature {
+public class CreatureDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String species;
     private double size;
     private int dangerLevel;
     private String healthStatus;
-    @ManyToOne
-    @JoinColumn(name = "zone_id")
-    private Zone zone;
+    private Long zoneId;
 
 }

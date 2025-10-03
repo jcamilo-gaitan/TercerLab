@@ -1,4 +1,5 @@
 package com.Laboratorio3.zoo_fantastico.controller;
+import com.Laboratorio3.zoo_fantastico.dto.CreatureDTO;
 import com.Laboratorio3.zoo_fantastico.entity.Creature;
 import com.Laboratorio3.zoo_fantastico.repository.CreatureRepository;
 import com.Laboratorio3.zoo_fantastico.service.CreatureService;
@@ -18,7 +19,7 @@ public class CreatureController {
         this.creatureService = creatureService;
     }
     @PostMapping
-    public ResponseEntity<Creature> createCreature(@RequestBody Creature creature) {
+    public ResponseEntity<Creature> createCreature(@RequestBody CreatureDTO creature) {
         Creature newCreature = creatureService.createCreature(creature);
         return ResponseEntity.status(HttpStatus.CREATED).body(newCreature);
     }
@@ -31,7 +32,7 @@ public class CreatureController {
         return creatureService.getCreatureById(id);
     }
     @PutMapping("/{id}")
-    public Creature updateCreature(@PathVariable Long id, @RequestBody Creature updatedCreature) {
+    public Creature updateCreature(@PathVariable Long id, @RequestBody CreatureDTO updatedCreature) {
         return creatureService.updateCreature(id, updatedCreature);
     }
     @DeleteMapping("/{id}")
