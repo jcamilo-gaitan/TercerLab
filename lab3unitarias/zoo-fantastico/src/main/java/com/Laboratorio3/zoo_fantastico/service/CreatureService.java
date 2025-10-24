@@ -46,6 +46,9 @@ public class CreatureService {
     public Creature createCreature(CreatureDTO creature) {
         return creatureRepository.save(mapper(new Creature(), creature));
     }
+    public Creature createCreature(Creature creature) {
+        return creatureRepository.save(creature);
+    }
 
     public List<Creature> getAllCreatures() {
         return creatureRepository.findAll();
@@ -62,7 +65,7 @@ public class CreatureService {
 
     public void deleteCreature(Long id) {
         Creature creature = getCreatureById(id);
-        if (!"critical".equals(creature.getHealthStatus())) {
+        if (!"critical".equalsIgnoreCase(creature.getHealthStatus())) {
             creatureRepository.delete(creature);
         } else {
             throw new IllegalStateException("Cannot delete a creature in critical health");
